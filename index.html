@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+    margin-top: 10%;
+    background-color: #e66465;
+}
+
+h1{
+    margin-left: 42%;
+    color: black;
+}
+.container{
+    width: 35%;
+    height:450px;
+    border:3px solid black;
+    margin-left: 30%;
+    border-radius: 10px;
+    background: linear-gradient(#e66465, #9198e5);
+}
+
+#given{
+    width: 80%;
+    height:50px;
+    margin-left: 10%;
+    margin-top: 5%;
+    border-radius: 50px;
+    font-size: 30px;
+    padding-left: 10px;
+    background-color:lightgray;
+   
+}
+
+.buttonbox{
+    
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 3%;
+    row-gap: 3%;
+    height: 280px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    padding-left: 20px;
+}
+
+button{
+    border-radius: 100px;
+    font-size: 20px;
+    color:black;
+
+}
+
+
+    </style>
+</head>
+<body>
+   <script>
+// creating heading
+var heading = document.createElement('h1');
+heading.innerHTML="Digital Calculator";
+document.body.append(heading);
+
+// creating container
+var container = document.createElement('div');
+container.setAttribute('class','container');
+
+
+// creating input bar to get value
+var inp = document.createElement('input');
+inp.setAttribute('type','text');
+inp.setAttribute('id','given');
+inp.setAttribute('name','given');
+container.append(inp);
+
+// creating a child container to contain all buttons
+var buttonbox = document.createElement('div');
+buttonbox.setAttribute('class','buttonbox');
+
+// creating 16 buttons for calculator
+var but1 = createbutton('button','7');
+but1.setAttribute('id','but1');
+var but2 = createbutton('button','8');
+but2.setAttribute('id','but2');
+var but3 = createbutton('button','9');
+but3.setAttribute('id','but3');
+var but4 = createbutton('button','+');
+but4.setAttribute('id','but4');
+var but5 = createbutton('button','4');
+but5.setAttribute('id','but5');
+var but6 = createbutton('button','5');
+but6.setAttribute('id','but6');
+var but7 = createbutton('button','6');
+but7.setAttribute('id','but7');
+var but8 = createbutton('button','-');
+but8.setAttribute('id','but8');
+var but9 = createbutton('button','1');
+but9.setAttribute('id','but9');
+var but10 = createbutton('button','2');
+but10.setAttribute('id','but10');
+var but11 = createbutton('button','3');
+but11.setAttribute('id','but11');
+var but12 = createbutton('button','X');
+but12.setAttribute('id','but12');
+var but13 = createbutton('button','C');
+but13.setAttribute('id','but13');
+var but14 = createbutton('button','0');
+but14.setAttribute('id','but14');
+var but15 = createbutton('button','=');
+but15.setAttribute('id','but15');
+var but16 = createbutton('button','/');
+but16.setAttribute('id','but16');
+
+
+// appending process
+buttonbox.append(but1,but2,but3,but4,but5,but6,but7,but8,but9,but10,but11,but12,but13,but14,but15,but16);
+container.append(buttonbox);
+document.body.append(container);
+
+// creating function for creating a button element
+function createbutton(element,value){
+    var elem = document.createElement(element);
+    elem.innerHTML=value;
+    return elem;
+}
+
+
+var outputscreen = document.getElementById("given");
+
+
+// adding function to every button to show numbers in inputscreen 
+
+but1.addEventListener('click',function(){
+    outputscreen.value += 7;
+})
+but2.addEventListener('click',function(){
+    outputscreen.value += 8;
+})
+but3.addEventListener('click',function(){
+    outputscreen.value += 9;
+})
+but4.addEventListener('click',function(){
+    outputscreen.value += '+';
+})
+but5.addEventListener('click',function(){
+    outputscreen.value += 4;
+})
+but6.addEventListener('click',function(){
+    outputscreen.value += 5;
+})
+but7.addEventListener('click',function(){
+    outputscreen.value += 6;
+})
+but8.addEventListener('click',function(){
+    outputscreen.value += '-';
+})
+but9.addEventListener('click',function(){
+    outputscreen.value += 1;
+})
+but10.addEventListener('click',function(){
+    outputscreen.value += 2;
+})
+but11.addEventListener('click',function(){
+    outputscreen.value += 3;
+})
+but12.addEventListener('click',function(){
+    outputscreen.value += '*';
+})
+but13.addEventListener('click',function(){
+    outputscreen.value= outputscreen.value.slice(0,-1);
+})
+but14.addEventListener('click',function(){
+    outputscreen.value += 0;
+})
+but15.addEventListener('click',function(){
+    try{
+        outputscreen.value = eval(outputscreen.value);
+    }
+    catch(err){
+        alert("invalid input");
+    }
+})
+but16.addEventListener('click',function(){
+    outputscreen.value += '/';
+})
+
+
+
+</script>
+
+</body>
+</html>
